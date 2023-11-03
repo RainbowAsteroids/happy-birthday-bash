@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ppkvtrwk7ipd"]
+
+[ext_resource type="Texture2D" uid="uid://bar8284qe8857" path="res://Stick/stick.png" id="1_n2c35"]
+[ext_resource type="PackedScene" uid="uid://5g7fn512syp8" path="res://FuseableTest/FuseGuide.tscn" id="2_fr2ad"]
+[ext_resource type="Script" path="res://Stick/MoveableHandler.gd" id="3_loiad"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbg61"]
+size = Vector2(100, 20)
+
+[node name="Stick" type="RigidBody2D"]
+linear_damp = 2.419
+
+[node name="Stick" type="Sprite2D" parent="."]
+texture = ExtResource("1_n2c35")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vbg61")
+
+[node name="FuseGuide" parent="." instance=ExtResource("2_fr2ad")]
+
+[node name="Marker2D" type="Marker2D" parent="FuseGuide"]
+position = Vector2(50, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="FuseGuide"]
+position = Vector2(-50, 0)
+
+[node name="MoveableHandler" type="Node2D" parent="."]
+script = ExtResource("3_loiad")
+k = 45.0

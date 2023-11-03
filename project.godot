@@ -11,13 +11,16 @@ config_version=5
 [application]
 
 config/name="the-name-of-the-game"
-run/main_scene="res://World/world.tscn"
+run/main_scene="res://FuseableTest/fuseable_test.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[display]
+[input]
 
-window/size/resizable=false
+asd={
+"deadzone": 0.5,
+"events": []
+}
 
 [physics]
 

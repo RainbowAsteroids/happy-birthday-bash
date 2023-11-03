@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://5g7fn512syp8"]
+
+[ext_resource type="Script" path="res://FuseableTest/FuseGuide.gd" id="1_g5kds"]
+
+[node name="FuseGuide" type="Node2D"]
+script = ExtResource("1_g5kds")

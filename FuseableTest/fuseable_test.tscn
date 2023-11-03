@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq21b5buupn6c"]
+
+[ext_resource type="PackedScene" uid="uid://ppkvtrwk7ipd" path="res://Stick/Stick.tscn" id="1_yeq6p"]
+
+[node name="FuseableTest" type="Node2D"]
+
+[node name="Stick" parent="." instance=ExtResource("1_yeq6p")]
+position = Vector2(143, 168)
+
+[node name="Stick2" parent="." instance=ExtResource("1_yeq6p")]
+position = Vector2(325, 276)
