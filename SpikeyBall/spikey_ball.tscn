@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bwfqljprf240h"]
 
-[ext_resource type="Script" path="res://Stick/Stick.gd" id="1_j26f3"]
+[ext_resource type="Script" path="res://DamageWeapon.gd" id="1_excdl"]
 [ext_resource type="Texture2D" uid="uid://bhjg7t5vc2npx" path="res://SpikeyBall/spikey-ball-body.png" id="1_vibs3"]
 [ext_resource type="Texture2D" uid="uid://by1sv3qlkte7d" path="res://SpikeyBall/spikey-ball-eyes.png" id="2_pgd3n"]
 [ext_resource type="Script" path="res://SpikeyBall/Spikey-ball-eyes.gd" id="3_6oqdo"]
@@ -14,8 +14,9 @@ radius = 59.0
 collision_layer = 4
 collision_mask = 11
 mass = 2.5
-script = ExtResource("1_j26f3")
+script = ExtResource("1_excdl")
 damage = 50.0
+durability = 35
 
 [node name="Sprites" type="Node2D" parent="."]
 scale = Vector2(1.5, 1.5)

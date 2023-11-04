@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ppkvtrwk7ipd"]
 
-[ext_resource type="Script" path="res://Stick/Stick.gd" id="1_aofsj"]
+[ext_resource type="Script" path="res://DamageWeapon.gd" id="1_clgpo"]
 [ext_resource type="Texture2D" uid="uid://bar8284qe8857" path="res://Stick/stick.png" id="1_n2c35"]
 [ext_resource type="PackedScene" uid="uid://dmj0nad12uk3v" path="res://moveable_handler.tscn" id="3_ao65h"]
 [ext_resource type="PackedScene" uid="uid://um068gckkmmf" path="res://weapon_collision_handler.tscn" id="4_383um"]
@@ -14,7 +14,8 @@ collision_mask = 11
 inertia = 1000.0
 continuous_cd = 2
 linear_damp = 2.419
-script = ExtResource("1_aofsj")
+script = ExtResource("1_clgpo")
+durability = 15
 
 [node name="Stick" type="Sprite2D" parent="."]
 texture = ExtResource("1_n2c35")
