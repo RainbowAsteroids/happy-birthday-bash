@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bar8284qe8857"
-path="res://.godot/imported/stick.png-e24517bbd2ddbdaf11b2505a0d439326.ctex"
+uid="uid://by1sv3qlkte7d"
+path="res://.godot/imported/spikey-ball-eyes.png-981233b6fe089e254954f96d100cccba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Stick/stick.png"
-dest_files=["res://.godot/imported/stick.png-e24517bbd2ddbdaf11b2505a0d439326.ctex"]
+source_file="res://Weapon/SpikeyBall/spikey-ball-eyes.png"
+dest_files=["res://.godot/imported/spikey-ball-eyes.png-981233b6fe089e254954f96d100cccba.ctex"]
 
 [params]
 

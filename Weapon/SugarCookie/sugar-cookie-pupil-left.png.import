@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://80kistrx0ab3"
-path="res://.godot/imported/sugar-cookie-pupil-right.png-4fd33d13678a46886856ae23f5e83de5.ctex"
+uid="uid://qcv32rraajt7"
+path="res://.godot/imported/sugar-cookie-pupil-left.png-f88a376b0ae85578828f5e544ae456c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SugarCookie/sugar-cookie-pupil-right.png"
-dest_files=["res://.godot/imported/sugar-cookie-pupil-right.png-4fd33d13678a46886856ae23f5e83de5.ctex"]
+source_file="res://Weapon/SugarCookie/sugar-cookie-pupil-left.png"
+dest_files=["res://.godot/imported/sugar-cookie-pupil-left.png-f88a376b0ae85578828f5e544ae456c5.ctex"]
 
 [params]
 

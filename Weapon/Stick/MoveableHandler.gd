@@ -2,6 +2,7 @@ class_name MoveableHandler extends Node2D
 
 @export var k := 10.0
 @export var yank := 5.0
+@export var force_offset := 1
 
 var moving := false
 
@@ -44,4 +45,8 @@ func _physics_process(_delta):
 		var mul := (-(d - 1) + 1) * yank
 		
 
-		parent.apply_central_force(to_mouse_hat * x * k * mul)
+		parent.apply_force(
+			to_mouse_hat * x * k * mul, 
+			parent.center_of_mass + Vector2(force_offset, 0).rotated(randf() * PI * 2)
+		)
+		#parent.apply_central_force(to_mouse_hat * x * k * mul)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhjg7t5vc2npx"
-path="res://.godot/imported/spikey-ball-body.png-defa1d9795730d19872cfa9b90ccc9bd.ctex"
+uid="uid://t8532dq605hf"
+path="res://.godot/imported/sugar-cookie.svg-367acf130c84cb8558d3ba76978a7c90.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpikeyBall/spikey-ball-body.png"
-dest_files=["res://.godot/imported/spikey-ball-body.png-defa1d9795730d19872cfa9b90ccc9bd.ctex"]
+source_file="res://Weapon/SugarCookie/sugar-cookie.svg"
+dest_files=["res://.godot/imported/sugar-cookie.svg-367acf130c84cb8558d3ba76978a7c90.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
