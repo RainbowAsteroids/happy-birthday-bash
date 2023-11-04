@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://ppkvtrwk7ipd"]
+
+[ext_resource type="Script" path="res://Weapon/DamageWeapon.gd" id="1_w5qqt"]
+[ext_resource type="Texture2D" uid="uid://bar8284qe8857" path="res://Weapon/Stick/stick.png" id="2_fmy8t"]
+[ext_resource type="PackedScene" uid="uid://dmj0nad12uk3v" path="res://Weapon/moveable_handler.tscn" id="3_rv7xh"]
+[ext_resource type="PackedScene" uid="uid://um068gckkmmf" path="res://Weapon/weapon_collision_handler.tscn" id="4_s0wwi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbg61"]
+size = Vector2(106, 26)
+
+[node name="Stick" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 11
+inertia = 1000.0
+continuous_cd = 2
+linear_damp = 2.419
+script = ExtResource("1_w5qqt")
+durability = 15
+
+[node name="Stick" type="Sprite2D" parent="."]
+texture = ExtResource("2_fmy8t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vbg61")
+
+[node name="MoveableHandler" parent="." instance=ExtResource("3_rv7xh")]
+
+[node name="WeaponCollisionHandler" parent="." instance=ExtResource("4_s0wwi")]

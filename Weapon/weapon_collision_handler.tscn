@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://um068gckkmmf"]
 
-[ext_resource type="Script" path="res://Stick/WeaponCollisionHandler.gd" id="1_gugog"]
+[ext_resource type="Script" path="res://Weapon/Stick/WeaponCollisionHandler.gd" id="1_gugog"]
 
 [node name="WeaponCollisionHandler" type="Node2D"]
 script = ExtResource("1_gugog")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nrqw3jdkehu"
-path="res://.godot/imported/glue.svg-ccff8f012ff19d1aa400dc1fc8a9cfc0.ctex"
+uid="uid://cuwjncgdpfasn"
+path="res://.godot/imported/spikey-ball.svg-15f389181fca783094c89086353e5a61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Glue/glue.svg"
-dest_files=["res://.godot/imported/glue.svg-ccff8f012ff19d1aa400dc1fc8a9cfc0.ctex"]
+source_file="res://Weapon/SpikeyBall/spikey-ball.svg"
+dest_files=["res://.godot/imported/spikey-ball.svg-15f389181fca783094c89086353e5a61.ctex"]
 
 [params]
 

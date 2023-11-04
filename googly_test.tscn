@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://csv7xbbv61fv1"]
 
 [ext_resource type="Script" path="res://googly-test.gd" id="1_d6s5c"]
-[ext_resource type="PackedScene" uid="uid://dix336iqjmom1" path="res://SugarCookie/sugar_cookie.tscn" id="2_i3epk"]
+[ext_resource type="PackedScene" uid="uid://dix336iqjmom1" path="res://Weapon/SugarCookie/sugar_cookie.tscn" id="2_i3epk"]
 
 [node name="googly-test" type="Node2D"]
 script = ExtResource("1_d6s5c")

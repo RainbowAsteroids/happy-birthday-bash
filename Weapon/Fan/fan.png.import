@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t8532dq605hf"
-path="res://.godot/imported/sugar-cookie.svg-c8a8facd61c4895f8044b2665ebed30e.ctex"
+uid="uid://bybaxlj66uwpl"
+path="res://.godot/imported/fan.png-a8a9df4463e43278ca0a83143e744310.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SugarCookie/sugar-cookie.svg"
-dest_files=["res://.godot/imported/sugar-cookie.svg-c8a8facd61c4895f8044b2665ebed30e.ctex"]
+source_file="res://Weapon/Fan/fan.png"
+dest_files=["res://.godot/imported/fan.png-a8a9df4463e43278ca0a83143e744310.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://q3onn125gdt7"]
 
-[ext_resource type="Script" path="res://Glue/glue.gd" id="1_5r0vk"]
-[ext_resource type="Texture2D" uid="uid://b4rblgt2bhxqn" path="res://Glue/glue.png" id="1_rvfg3"]
-[ext_resource type="PackedScene" uid="uid://um068gckkmmf" path="res://weapon_collision_handler.tscn" id="2_wwuci"]
-[ext_resource type="PackedScene" uid="uid://dmj0nad12uk3v" path="res://moveable_handler.tscn" id="3_im701"]
+[ext_resource type="Script" path="res://Weapon/Glue/glue.gd" id="1_7ynsi"]
+[ext_resource type="Texture2D" uid="uid://b4rblgt2bhxqn" path="res://Weapon/Glue/glue.png" id="2_tmhhx"]
+[ext_resource type="PackedScene" uid="uid://um068gckkmmf" path="res://Weapon/weapon_collision_handler.tscn" id="3_86ssr"]
+[ext_resource type="PackedScene" uid="uid://dmj0nad12uk3v" path="res://Weapon/moveable_handler.tscn" id="4_djhad"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ml7mb"]
 radius = 34.0
@@ -14,7 +14,7 @@ collision_layer = 4
 collision_mask = 3
 mass = 0.5
 linear_damp = 5.0
-script = ExtResource("1_5r0vk")
+script = ExtResource("1_7ynsi")
 durability = 35
 
 [node name="Sprites" type="Node2D" parent="."]
@@ -22,13 +22,13 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Glue" type="Sprite2D" parent="Sprites"]
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("1_rvfg3")
+texture = ExtResource("2_tmhhx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ml7mb")
 
-[node name="WeaponCollisionHandler" parent="." instance=ExtResource("2_wwuci")]
+[node name="WeaponCollisionHandler" parent="." instance=ExtResource("3_86ssr")]
 
-[node name="MoveableHandler" parent="." instance=ExtResource("3_im701")]
+[node name="MoveableHandler" parent="." instance=ExtResource("4_djhad")]
 
 [connection signal="enemy_hit" from="WeaponCollisionHandler" to="." method="_on_weapon_collision_handler_enemy_hit"]
