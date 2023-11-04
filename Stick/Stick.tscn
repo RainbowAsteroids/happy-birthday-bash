@@ -1,14 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://ppkvtrwk7ipd"]
+[gd_scene load_steps=6 format=3 uid="uid://ppkvtrwk7ipd"]
 
+[ext_resource type="Script" path="res://Stick/Stick.gd" id="1_aofsj"]
 [ext_resource type="Texture2D" uid="uid://bar8284qe8857" path="res://Stick/stick.png" id="1_n2c35"]
-[ext_resource type="PackedScene" uid="uid://5g7fn512syp8" path="res://FuseableTest/FuseGuide.tscn" id="2_fr2ad"]
-[ext_resource type="Script" path="res://Stick/MoveableHandler.gd" id="3_loiad"]
+[ext_resource type="PackedScene" uid="uid://dmj0nad12uk3v" path="res://moveable_handler.tscn" id="3_ao65h"]
+[ext_resource type="PackedScene" uid="uid://um068gckkmmf" path="res://weapon_collision_handler.tscn" id="4_383um"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbg61"]
-size = Vector2(100, 20)
+size = Vector2(106, 26)
 
 [node name="Stick" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 9
+inertia = 1000.0
+continuous_cd = 2
 linear_damp = 2.419
+script = ExtResource("1_aofsj")
 
 [node name="Stick" type="Sprite2D" parent="."]
 texture = ExtResource("1_n2c35")
@@ -16,14 +22,6 @@ texture = ExtResource("1_n2c35")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vbg61")
 
-[node name="FuseGuide" parent="." instance=ExtResource("2_fr2ad")]
+[node name="MoveableHandler" parent="." instance=ExtResource("3_ao65h")]
 
-[node name="Marker2D" type="Marker2D" parent="FuseGuide"]
-position = Vector2(50, 0)
-
-[node name="Marker2D2" type="Marker2D" parent="FuseGuide"]
-position = Vector2(-50, 0)
-
-[node name="MoveableHandler" type="Node2D" parent="."]
-script = ExtResource("3_loiad")
-k = 45.0
+[node name="WeaponCollisionHandler" parent="." instance=ExtResource("4_383um")]

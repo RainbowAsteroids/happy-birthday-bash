@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmj0nad12uk3v"]
+
+[ext_resource type="Script" path="res://Stick/MoveableHandler.gd" id="1_c3m2q"]
+
+[node name="MoveableHandler" type="Node2D"]
+show_behind_parent = true
+script = ExtResource("1_c3m2q")
+k = 25.0
+yank = 2.7

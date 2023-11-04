@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://kyp60bl755aw"]
+
+[ext_resource type="Texture2D" uid="uid://cc2j3r46e7v2x" path="res://icon.svg" id="1_pf7ic"]
+[ext_resource type="Script" path="res://Cake/Cake.gd" id="1_tqfv3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rr22"]
+size = Vector2(295, 95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7ehi"]
+size = Vector2(521.5, 207.5)
+
+[node name="Cake" type="StaticBody2D"]
+scale = Vector2(0.36, 0.36)
+collision_layer = 2
+collision_mask = 11
+script = ExtResource("1_tqfv3")
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(1, 0.976471, 0, 1)
+scale = Vector2(2.3, 0.75)
+texture = ExtResource("1_pf7ic")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_8rr22")
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_i7ehi")
+debug_color = Color(0.976471, 0, 0.4, 0.419608)

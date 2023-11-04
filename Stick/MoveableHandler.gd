@@ -1,13 +1,9 @@
 class_name MoveableHandler extends Node2D
 
 @export var k := 10.0
+@export var yank := 5.0
 
 var moving := false
-	#set (value):
-		#parent.continuous_cd = \
-			#RigidBody2D.CCD_MODE_CAST_SHAPE if value \
-			#else RigidBody2D.CCD_MODE_DISABLED
-		#moving = value
 
 @onready var parent := get_parent() as RigidBody2D
 
@@ -21,8 +17,20 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 		if event.pressed:
 			moving = true
 
+func _draw():
+	if moving:
+		draw_line(
+			Vector2(), 
+			get_local_mouse_position(), 
+			Color.WHITE, 
+			1, 
+			true
+		)
+
+func _process(delta):
+	queue_redraw()
+
 func _ready():
-	parent.continuous_cd = RigidBody2D.CCD_MODE_CAST_SHAPE
 	parent.input_pickable = true
 	parent.input_event.connect(_on_input_event)
 	
@@ -33,7 +41,7 @@ func _physics_process(_delta):
 		var to_mouse_hat := to_mouse.normalized()
 
 		var d := to_mouse_hat.dot(parent.linear_velocity.normalized())
-		var mul := (-(d - 1) + 1) * 5
+		var mul := (-(d - 1) + 1) * yank
 		
 
 		parent.apply_central_force(to_mouse_hat * x * k * mul)
