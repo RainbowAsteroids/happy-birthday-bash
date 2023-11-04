@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dkphvvx1s48hi"]
+[gd_scene load_steps=14 format=3 uid="uid://dkphvvx1s48hi"]
 
 [ext_resource type="PackedScene" uid="uid://bph5vow85w8do" path="res://ball.tscn" id="1_f4dmd"]
 [ext_resource type="Script" path="res://World/spinnyboi.gd" id="2_p7rve"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ppkvtrwk7ipd" path="res://Stick/Stick.tscn" id="6_h67fk"]
 [ext_resource type="PackedScene" uid="uid://c7i5kuuhsy4tp" path="res://Enemy/enemy_spawner.tscn" id="7_hxux6"]
 [ext_resource type="PackedScene" uid="uid://bwfqljprf240h" path="res://SpikeyBall/spikey_ball.tscn" id="8_06lge"]
+[ext_resource type="PackedScene" uid="uid://dix336iqjmom1" path="res://SugarCookie/sugar_cookie.tscn" id="9_mu3e8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tjrns"]
 size = Vector2(128, 24)
@@ -109,3 +110,6 @@ enemy_parent = NodePath("../../Enemies")
 
 [node name="SpikeyBall" parent="." instance=ExtResource("8_06lge")]
 position = Vector2(319, 301)
+
+[node name="SugarCookie" parent="." instance=ExtResource("9_mu3e8")]
+position = Vector2(766, 199)

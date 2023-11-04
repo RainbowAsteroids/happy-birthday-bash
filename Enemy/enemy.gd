@@ -8,6 +8,8 @@ class_name Enemy extends RigidBody2D
 
 @onready var cake := Cake.instance
 
+var damage_multiplier := 1.0
+
 func _physics_process(_delta):
 	var goal := cake.global_position - global_position
 	var goal_hat := goal.normalized()
@@ -20,7 +22,7 @@ func _physics_process(_delta):
 	
 
 func take_damage(amount: float):
-	health -= amount
+	health -= amount * damage_multiplier
 
 	if health <= 0:
 		queue_free()
