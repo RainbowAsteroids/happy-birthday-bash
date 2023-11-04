@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bw8q50xti3s4n"]
+
+[ext_resource type="Script" path="res://Weapon/DamageWeapon.gd" id="1_acp4q"]
+[ext_resource type="Texture2D" uid="uid://craao2osifum8" path="res://Weapon/Pipe/pipe.png" id="2_kb0ov"]
+[ext_resource type="PackedScene" uid="uid://dmj0nad12uk3v" path="res://Weapon/moveable_handler.tscn" id="3_w2svd"]
+[ext_resource type="PackedScene" uid="uid://um068gckkmmf" path="res://Weapon/weapon_collision_handler.tscn" id="4_horvj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w4elr"]
+radius = 23.0087
+height = 114.034
+
+[node name="Pipe" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 11
+mass = 2.63
+linear_damp = 7.0
+script = ExtResource("1_acp4q")
+damage = 30.0
+durability = 40
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Pipe" type="Sprite2D" parent="Sprites"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_kb0ov")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -31)
+rotation = 0.5166
+shape = SubResource("CapsuleShape2D_w4elr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-20, 27)
+rotation = 0.00978827
+shape = SubResource("CapsuleShape2D_w4elr")
+
+[node name="MoveableHandler" parent="." instance=ExtResource("3_w2svd")]
+
+[node name="WeaponCollisionHandler" parent="." instance=ExtResource("4_horvj")]

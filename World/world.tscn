@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dkphvvx1s48hi"]
+[gd_scene load_steps=13 format=3 uid="uid://dkphvvx1s48hi"]
 
 [ext_resource type="PackedScene" uid="uid://bph5vow85w8do" path="res://ball.tscn" id="1_f4dmd"]
 [ext_resource type="Script" path="res://World/spinnyboi.gd" id="2_p7rve"]
@@ -6,12 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://kyp60bl755aw" path="res://Cake/cake.tscn" id="4_2ehdc"]
 [ext_resource type="PackedScene" uid="uid://b5ijahjdcyd0y" path="res://Enemy/enemy.tscn" id="5_c162b"]
 [ext_resource type="PackedScene" uid="uid://c7i5kuuhsy4tp" path="res://Enemy/enemy_spawner.tscn" id="7_hxux6"]
+[ext_resource type="PackedScene" uid="uid://bw8q50xti3s4n" path="res://Weapon/Pipe/pipe.tscn" id="8_qyu74"]
 [ext_resource type="PackedScene" uid="uid://ddwrunmww2qba" path="res://Weapon/Fan/fan.tscn" id="11_koefx"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjrns"]
-size = Vector2(128, 24)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_psh5m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xu6c7"]
 texture = ExtResource("3_ivn4p")
@@ -25,6 +21,11 @@ texture_region_size = Vector2i(20, 20)
 tile_size = Vector2i(20, 20)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_xu6c7")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjrns"]
+size = Vector2(128, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_psh5m"]
 
 [node name="World" type="Node2D"]
 
@@ -41,6 +42,36 @@ position = Vector2(557, 573)
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource("5_c162b")]
 position = Vector2(854, 555)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_s2sbp")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 131072, 3, 65536, 131072, 3, 131072, 131072, 3, 196608, 131072, 3, 262144, 131072, 3, 327680, 131072, 3, 393216, 131072, 3, 458752, 131072, 3, 524288, 131072, 3, 589824, 131072, 3, 655360, 131072, 3, 720896, 131072, 3, 786432, 131072, 3, 851968, 131072, 3, 1376256, 131072, 3, 1769472, 131072, 3, 1703936, 131072, 3, 1638400, 131072, 3, 1572864, 131072, 3, 1507328, 131072, 3, 1441792, 131072, 3, 1, 131072, 3, 2, 131072, 3, 3, 131072, 3, 4, 131072, 3, 5, 131072, 3, 6, 131072, 3, 7, 131072, 3, 8, 131072, 3, 9, 131072, 3, 10, 131072, 3, 11, 131072, 3, 12, 131072, 3, 13, 131072, 3, 14, 131072, 3, 15, 131072, 3, 16, 131072, 3, 17, 131072, 3, 18, 131072, 3, 19, 131072, 3, 20, 131072, 3, 21, 131072, 3, 22, 131072, 3, 33, 131072, 3, 34, 131072, 3, 35, 131072, 3, 36, 131072, 3, 37, 131072, 3, 38, 131072, 3, 39, 131072, 3, 40, 131072, 3, 41, 131072, 3, 42, 131072, 3, 43, 131072, 3, 44, 131072, 3, 45, 131072, 3, 46, 131072, 3, 47, 131072, 3, 48, 131072, 3, 49, 131072, 3, 50, 131072, 3, 51, 131072, 3, 52, 131072, 3, 53, 131072, 3, 54, 131072, 3, 55, 131072, 3, 56, 131072, 3, 57, 131072, 3, 65593, 131072, 3, 131129, 131072, 3, 196665, 131072, 3, 262201, 131072, 3, 327737, 131072, 3, 393273, 131072, 3, 458809, 131072, 3, 524345, 131072, 3, 589881, 131072, 3, 655417, 131072, 3, 720953, 131072, 3, 786489, 131072, 3, 852025, 131072, 3, 1376313, 131072, 3, 1441849, 131072, 3, 1507385, 131072, 3, 1572921, 131072, 3, 1638457, 131072, 3, 1703993, 131072, 3, 1769529, 131072, 3, 1835065, 131072, 3, 1900601, 131072, 3, 1966137, 131072, 3, 2031673, 131072, 3, 2097209, 131072, 3, 2097208, 131072, 3, 2097207, 131072, 3, 2097206, 131072, 3, 2097205, 131072, 3, 2097204, 131072, 3, 2097203, 131072, 3, 2097202, 131072, 3, 2097201, 131072, 3, 2097200, 131072, 3, 2097199, 131072, 3, 2097198, 131072, 3, 2097197, 131072, 3, 2097196, 131072, 3, 2097195, 131072, 3, 2097194, 131072, 3, 2097193, 131072, 3, 2097192, 131072, 3, 2097191, 131072, 3, 2097190, 131072, 3, 2097189, 131072, 3, 2097188, 131072, 3, 2097187, 131072, 3, 2097186, 131072, 3, 2097185, 131072, 3, 2097174, 131072, 3, 2097173, 131072, 3, 2097172, 131072, 3, 2097171, 131072, 3, 2097170, 131072, 3, 2097169, 131072, 3, 2097168, 131072, 3, 2097167, 131072, 3, 2097166, 131072, 3, 2097165, 131072, 3, 2097164, 131072, 3, 2097163, 131072, 3, 2097162, 131072, 3, 2097161, 131072, 3, 2097160, 131072, 3, 2097159, 131072, 3, 2097158, 131072, 3, 2097157, 131072, 3, 2097156, 131072, 3, 2097155, 131072, 3, 2097154, 131072, 3, 2097153, 131072, 3, 2097152, 131072, 3, 1835008, 131072, 3, 1900544, 131072, 3, 1966080, 131072, 3, 2031616, 131072, 3)
+
+[node name="Spawners" type="Node" parent="."]
+
+[node name="EnemySpawner" parent="Spawners" node_paths=PackedStringArray("enemy_parent") instance=ExtResource("7_hxux6")]
+position = Vector2(-34, 343)
+respawn_time = 5
+enemy_parent = NodePath("../../Enemies")
+
+[node name="EnemySpawner2" parent="Spawners" node_paths=PackedStringArray("enemy_parent") instance=ExtResource("7_hxux6")]
+position = Vector2(578, -37)
+respawn_time = 5
+enemy_parent = NodePath("../../Enemies")
+
+[node name="EnemySpawner3" parent="Spawners" node_paths=PackedStringArray("enemy_parent") instance=ExtResource("7_hxux6")]
+position = Vector2(1214, 353)
+respawn_time = 5
+enemy_parent = NodePath("../../Enemies")
+
+[node name="EnemySpawner4" parent="Spawners" node_paths=PackedStringArray("enemy_parent") instance=ExtResource("7_hxux6")]
+position = Vector2(558, 691)
+respawn_time = 5
+enemy_parent = NodePath("../../Enemies")
+
+[node name="Fan" parent="." instance=ExtResource("11_koefx")]
+position = Vector2(288, 352)
 
 [node name="oldstyle" type="Node2D" parent="."]
 process_mode = 4
@@ -76,32 +107,5 @@ metadata/_edit_lock_ = true
 shape = SubResource("RectangleShape2D_psh5m")
 metadata/_edit_lock_ = true
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_s2sbp")
-format = 2
-layer_0/tile_data = PackedInt32Array(0, 131072, 3, 65536, 131072, 3, 131072, 131072, 3, 196608, 131072, 3, 262144, 131072, 3, 327680, 131072, 3, 393216, 131072, 3, 458752, 131072, 3, 524288, 131072, 3, 589824, 131072, 3, 655360, 131072, 3, 720896, 131072, 3, 786432, 131072, 3, 851968, 131072, 3, 1376256, 131072, 3, 1769472, 131072, 3, 1703936, 131072, 3, 1638400, 131072, 3, 1572864, 131072, 3, 1507328, 131072, 3, 1441792, 131072, 3, 1, 131072, 3, 2, 131072, 3, 3, 131072, 3, 4, 131072, 3, 5, 131072, 3, 6, 131072, 3, 7, 131072, 3, 8, 131072, 3, 9, 131072, 3, 10, 131072, 3, 11, 131072, 3, 12, 131072, 3, 13, 131072, 3, 14, 131072, 3, 15, 131072, 3, 16, 131072, 3, 17, 131072, 3, 18, 131072, 3, 19, 131072, 3, 20, 131072, 3, 21, 131072, 3, 22, 131072, 3, 33, 131072, 3, 34, 131072, 3, 35, 131072, 3, 36, 131072, 3, 37, 131072, 3, 38, 131072, 3, 39, 131072, 3, 40, 131072, 3, 41, 131072, 3, 42, 131072, 3, 43, 131072, 3, 44, 131072, 3, 45, 131072, 3, 46, 131072, 3, 47, 131072, 3, 48, 131072, 3, 49, 131072, 3, 50, 131072, 3, 51, 131072, 3, 52, 131072, 3, 53, 131072, 3, 54, 131072, 3, 55, 131072, 3, 56, 131072, 3, 57, 131072, 3, 65593, 131072, 3, 131129, 131072, 3, 196665, 131072, 3, 262201, 131072, 3, 327737, 131072, 3, 393273, 131072, 3, 458809, 131072, 3, 524345, 131072, 3, 589881, 131072, 3, 655417, 131072, 3, 720953, 131072, 3, 786489, 131072, 3, 852025, 131072, 3, 1376313, 131072, 3, 1441849, 131072, 3, 1507385, 131072, 3, 1572921, 131072, 3, 1638457, 131072, 3, 1703993, 131072, 3, 1769529, 131072, 3, 1835065, 131072, 3, 1900601, 131072, 3, 1966137, 131072, 3, 2031673, 131072, 3, 2097209, 131072, 3, 2097208, 131072, 3, 2097207, 131072, 3, 2097206, 131072, 3, 2097205, 131072, 3, 2097204, 131072, 3, 2097203, 131072, 3, 2097202, 131072, 3, 2097201, 131072, 3, 2097200, 131072, 3, 2097199, 131072, 3, 2097198, 131072, 3, 2097197, 131072, 3, 2097196, 131072, 3, 2097195, 131072, 3, 2097194, 131072, 3, 2097193, 131072, 3, 2097192, 131072, 3, 2097191, 131072, 3, 2097190, 131072, 3, 2097189, 131072, 3, 2097188, 131072, 3, 2097187, 131072, 3, 2097186, 131072, 3, 2097185, 131072, 3, 2097174, 131072, 3, 2097173, 131072, 3, 2097172, 131072, 3, 2097171, 131072, 3, 2097170, 131072, 3, 2097169, 131072, 3, 2097168, 131072, 3, 2097167, 131072, 3, 2097166, 131072, 3, 2097165, 131072, 3, 2097164, 131072, 3, 2097163, 131072, 3, 2097162, 131072, 3, 2097161, 131072, 3, 2097160, 131072, 3, 2097159, 131072, 3, 2097158, 131072, 3, 2097157, 131072, 3, 2097156, 131072, 3, 2097155, 131072, 3, 2097154, 131072, 3, 2097153, 131072, 3, 2097152, 131072, 3, 1835008, 131072, 3, 1900544, 131072, 3, 1966080, 131072, 3, 2031616, 131072, 3)
-
-[node name="Spawners" type="Node" parent="."]
-
-[node name="EnemySpawner" parent="Spawners" node_paths=PackedStringArray("enemy_parent") instance=ExtResource("7_hxux6")]
-position = Vector2(-34, 343)
-respawn_time = 5
-enemy_parent = NodePath("../../Enemies")
-
-[node name="EnemySpawner2" parent="Spawners" node_paths=PackedStringArray("enemy_parent") instance=ExtResource("7_hxux6")]
-position = Vector2(578, -37)
-respawn_time = 5
-enemy_parent = NodePath("../../Enemies")
-
-[node name="EnemySpawner3" parent="Spawners" node_paths=PackedStringArray("enemy_parent") instance=ExtResource("7_hxux6")]
-position = Vector2(1214, 353)
-respawn_time = 5
-enemy_parent = NodePath("../../Enemies")
-
-[node name="EnemySpawner4" parent="Spawners" node_paths=PackedStringArray("enemy_parent") instance=ExtResource("7_hxux6")]
-position = Vector2(558, 691)
-respawn_time = 5
-enemy_parent = NodePath("../../Enemies")
-
-[node name="Fan" parent="." instance=ExtResource("11_koefx")]
-position = Vector2(288, 352)
+[node name="Pipe" parent="." instance=ExtResource("8_qyu74")]
+position = Vector2(826, 272)
