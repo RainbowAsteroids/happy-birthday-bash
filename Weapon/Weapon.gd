@@ -17,7 +17,7 @@ signal broken
 var audio_player: AudioStreamPlayer
 var danger := false
 
-@export var danger_ratio := 0.4
+@export var danger_ratio := 0
 
 func _screen_exited(indicator: VisibleOnScreenNotifier2D):
 	await get_tree().create_timer(1.).timeout
@@ -45,7 +45,8 @@ func _ready():
 func _on_enemy_hit(_enemy: Enemy):
 	#print("hai")
 	if danger:
-		audio_player.pitch_scale = .5
+		pass
+		#audio_player.pitch_scale = .5
 	audio_player.play()
 
 func set_moving(value: bool):

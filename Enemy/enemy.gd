@@ -1,5 +1,7 @@
 class_name Enemy extends RigidBody2D
 
+signal wall_damaged
+
 @export var damage := 3.0
 @export var health := 100.0
 
@@ -97,7 +99,13 @@ func _on_child_entered_tree(node):
 	if node is CactusSpike:
 		spike_count += 1
 
+func _ready():
+	contact_monitor = true
+	max_contacts_reported = 10000 # arbitraily large
 
 func _on_body_entered(body:Node):
+	print("collision with ", body)
 	if body is TileMap:
+		print("wall damage")
+		wall_damaged.emit()
 		take_damage(linear_velocity.length() / 8.0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dkphvvx1s48hi"]
+[gd_scene load_steps=36 format=3 uid="uid://dkphvvx1s48hi"]
 
 [ext_resource type="Script" path="res://World/world.gd" id="1_bv7nv"]
 [ext_resource type="PackedScene" uid="uid://bph5vow85w8do" path="res://ball.tscn" id="1_f4dmd"]
@@ -24,7 +24,10 @@
 [ext_resource type="Texture2D" uid="uid://dyi7mg01ym2xy" path="res://Shop/stick-shop.png" id="19_0unke"]
 [ext_resource type="PackedScene" uid="uid://dix336iqjmom1" path="res://Weapon/SugarCookie/sugar_cookie.tscn" id="20_8b6td"]
 [ext_resource type="Texture2D" uid="uid://6oavfwyw4r2x" path="res://Shop/sugar-cookie-shop.png" id="22_dlr8k"]
+[ext_resource type="Script" path="res://World/Tutorial/DoubleShopLabel.gd" id="25_5rcr5"]
 [ext_resource type="Script" path="res://World/PauseMenu.gd" id="25_f0wu7"]
+[ext_resource type="Script" path="res://World/WallDamageLabel.gd" id="26_4fsws"]
+[ext_resource type="Script" path="res://World/Tutorial/ShopLabel.gd" id="26_4v6nw"]
 [ext_resource type="Script" path="res://World/Label2.gd" id="26_oucol"]
 [ext_resource type="Script" path="res://Menus/QuitButton.gd" id="27_a6fr4"]
 
@@ -412,6 +415,33 @@ enemy_parent = NodePath("../../../Enemies")
 [node name="EnemySpawner4" parent="CanvasLayer/Spawners" node_paths=PackedStringArray("enemy_parent") instance=ExtResource("7_hxux6")]
 position = Vector2(558, 691)
 enemy_parent = NodePath("../../../Enemies")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="DoubleShopLabel" type="Label" parent="CanvasLayer2"]
+offset_left = 724.0
+offset_top = 148.0
+offset_right = 935.0
+offset_bottom = 174.0
+text = "(You can buy more than one!)"
+script = ExtResource("25_5rcr5")
+
+[node name="WallDamageLabel" type="Label" parent="CanvasLayer2"]
+offset_left = 39.0
+offset_top = 49.0
+offset_right = 415.0
+offset_bottom = 75.0
+text = "deal bonus damage by hitting enemies into wall"
+script = ExtResource("26_4fsws")
+
+[node name="ShopLabel" type="Label" parent="CanvasLayer2"]
+offset_left = 723.0
+offset_top = 107.0
+offset_right = 934.0
+offset_bottom = 133.0
+text = "Click here to buy an item ->"
+script = ExtResource("26_4v6nw")
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 2
