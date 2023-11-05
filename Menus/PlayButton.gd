@@ -1,6 +1,6 @@
 extends Button
 
-@export var play_scene: PackedScene
+var play_scene := load("res://World/world.tscn")
 
 
 func _on_pressed():
