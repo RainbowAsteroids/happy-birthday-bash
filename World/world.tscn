@@ -1,18 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://dkphvvx1s48hi"]
+[gd_scene load_steps=11 format=3 uid="uid://dkphvvx1s48hi"]
 
 [ext_resource type="PackedScene" uid="uid://bph5vow85w8do" path="res://ball.tscn" id="1_f4dmd"]
 [ext_resource type="Script" path="res://World/spinnyboi.gd" id="2_p7rve"]
 [ext_resource type="Texture2D" uid="uid://cc2j3r46e7v2x" path="res://icon.svg" id="3_ivn4p"]
 [ext_resource type="PackedScene" uid="uid://kyp60bl755aw" path="res://Cake/cake.tscn" id="4_2ehdc"]
 [ext_resource type="PackedScene" uid="uid://b5ijahjdcyd0y" path="res://Enemy/enemy.tscn" id="5_c162b"]
-[ext_resource type="PackedScene" uid="uid://ppkvtrwk7ipd" path="res://Weapon/Stick/Stick.tscn" id="7_glkn3"]
 [ext_resource type="PackedScene" uid="uid://c7i5kuuhsy4tp" path="res://Enemy/enemy_spawner.tscn" id="7_hxux6"]
-[ext_resource type="PackedScene" uid="uid://r6u5udtbm6jn" path="res://Weapon/Cactus/cactus.tscn" id="7_wwsfe"]
-[ext_resource type="PackedScene" uid="uid://bw8q50xti3s4n" path="res://Weapon/Pipe/pipe.tscn" id="8_qyu74"]
-[ext_resource type="PackedScene" uid="uid://q3onn125gdt7" path="res://Weapon/Glue/glue.tscn" id="10_g2gcj"]
-[ext_resource type="PackedScene" uid="uid://ddwrunmww2qba" path="res://Weapon/Fan/fan.tscn" id="11_koefx"]
-[ext_resource type="PackedScene" uid="uid://bwfqljprf240h" path="res://Weapon/SpikeyBall/spikey_ball.tscn" id="12_h34yp"]
-[ext_resource type="PackedScene" uid="uid://dix336iqjmom1" path="res://Weapon/SugarCookie/sugar_cookie.tscn" id="13_a75f8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xu6c7"]
 texture = ExtResource("3_ivn4p")
@@ -108,24 +101,3 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="oldstyle/PinJoint2D/StaticBody2D"]
 shape = SubResource("RectangleShape2D_psh5m")
 metadata/_edit_lock_ = true
-
-[node name="Stick" parent="." instance=ExtResource("7_glkn3")]
-position = Vector2(114, 137)
-
-[node name="Cactus" parent="." instance=ExtResource("7_wwsfe")]
-position = Vector2(234, 126)
-
-[node name="Fan" parent="." instance=ExtResource("11_koefx")]
-position = Vector2(399, 140)
-
-[node name="Glue" parent="." instance=ExtResource("10_g2gcj")]
-position = Vector2(543, 143)
-
-[node name="Pipe" parent="." instance=ExtResource("8_qyu74")]
-position = Vector2(673, 129)
-
-[node name="SpikeyBall" parent="." instance=ExtResource("12_h34yp")]
-position = Vector2(132, 251)
-
-[node name="SugarCookie" parent="." instance=ExtResource("13_a75f8")]
-position = Vector2(255, 244)
