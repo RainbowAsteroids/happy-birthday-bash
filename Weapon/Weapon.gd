@@ -2,10 +2,20 @@ class_name Weapon extends RigidBody2D
 
 signal broken
 
+var particle_scene := preload("res://particles.tscn")
+
+var dead := false
+
 @export var durability := 25:
 	set(value):
-		if value <= 0:
+		if value <= 0 and not dead:
 			broken.emit()
+
+			var particles := particle_scene.instantiate()
+			particles.global_position = global_position
+			get_parent().add_child(particles)
+
+			dead = true
 			queue_free()
 		durability = value
 		danger = (durability as float) / (initial_durability as float) < danger_ratio

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dskntjc6ylj3n"]
+
+[ext_resource type="Script" path="res://particles.gd" id="1_rsldq"]
+
+[sub_resource type="Curve" id="Curve_231mu"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 10.8747), 0.0, 0.0, 0, 0, Vector2(0.991784, -200), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+position = Vector2(299, 241)
+emitting = false
+amount = 32
+lifetime = 0.5
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 150.5
+initial_velocity_max = 211.64
+linear_accel_min = -3.49
+linear_accel_max = 13.1
+linear_accel_curve = SubResource("Curve_231mu")
+scale_amount_min = 5.0
+scale_amount_max = 7.0
+color = Color(0.258824, 0.109804, 0, 1)
+script = ExtResource("1_rsldq")
