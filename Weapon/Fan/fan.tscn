@@ -34,7 +34,6 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_2eydp")
 
 [node name="MoveableHandler" parent="." instance=ExtResource("3_5jmkq")]
-force_offset = 5
 
 [node name="WeaponCollisionHandler" parent="." instance=ExtResource("4_g5ptf")]
 

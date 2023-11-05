@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="4.9995098mm"
+   height="1.5498852mm"
+   viewBox="0 0 4.9995099 1.5498852"
+   version="1.1"
+   id="svg33285"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="cactus-spike.svg"
+   inkscape:export-filename="cactus-spike.png"
+   inkscape:export-xdpi="960"
+   inkscape:export-ydpi="960"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview33287"
+     pagecolor="#3c3c3c"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="false"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#222222"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="7.319248"
+     inkscape:cx="-3.6889035"
+     inkscape:cy="20.767161"
+     inkscape:window-width="1270"
+     inkscape:window-height="1400"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs33282" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-99.39025,-125.01971)">
+    <path
+       id="path30630"
+       style="fill:#ffffff;fill-opacity:1;stroke-width:10;stroke-linecap:round;stroke-linejoin:round"
+       d="m 104.38976,125.76285 c 0,0 -1.15149,0.71509 -1.70671,0.7359 l -1.84055,0.069 c -0.79503,0.0298 -1.443066,-0.30544 -1.452153,-0.7236 -0.0091,-0.41816 0.623953,-0.76871 1.419363,-0.78599 l 1.7613,-0.0383 c 0.57201,-0.0124 1.81875,0.74296 1.81875,0.74296 z"
+       sodipodi:nodetypes="csssssc" />
+  </g>
+</svg>

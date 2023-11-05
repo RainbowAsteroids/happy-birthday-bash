@@ -8,7 +8,6 @@ extends Weapon
 func _physics_process(_delta):
 	for body in wind_hitbox.get_overlapping_bodies():
 		if body is Enemy:
-			print(body)
 			var r_hat = (body.global_position - global_position).normalized()
 
 			var velocity_factor = linear_velocity.length() / velocity_divisor

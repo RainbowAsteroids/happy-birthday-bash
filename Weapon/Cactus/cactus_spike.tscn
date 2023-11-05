@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkiapt30efdsl"]
+
+[ext_resource type="Script" path="res://Weapon/Cactus/cactus-spike.gd" id="1_x3ra1"]
+[ext_resource type="Texture2D" uid="uid://b35tdiv5hitj2" path="res://Weapon/Cactus/cactus-spike.png" id="2_qtacq"]
+
+[node name="CactusSpike" type="Node2D"]
+script = ExtResource("1_x3ra1")
+
+[node name="Cactus-spike" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_qtacq")
+
+[node name="Timer" type="Timer" parent="."]

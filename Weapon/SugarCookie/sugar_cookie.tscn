@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://qcv32rraajt7" path="res://Weapon/SugarCookie/sugar-cookie-pupil-left.png" id="2_dj2xr"]
 [ext_resource type="Script" path="res://Weapon/SugarCookie/googly-eye.gd" id="3_j3yen"]
 [ext_resource type="Texture2D" uid="uid://80kistrx0ab3" path="res://Weapon/SugarCookie/sugar-cookie-pupil-right.png" id="4_ygbjw"]
-[ext_resource type="PackedScene" uid="uid://um068gckkmmf" path="res://weapon_collision_handler.tscn" id="5_uoxhs"]
-[ext_resource type="PackedScene" uid="uid://dmj0nad12uk3v" path="res://moveable_handler.tscn" id="6_rxe2r"]
+[ext_resource type="PackedScene" uid="uid://um068gckkmmf" path="res://Weapon/weapon_collision_handler.tscn" id="5_uoxhs"]
+[ext_resource type="PackedScene" uid="uid://dmj0nad12uk3v" path="res://Weapon/moveable_handler.tscn" id="6_rxe2r"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tikh2"]
 
@@ -15,6 +15,7 @@ collision_layer = 4
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_tikh2")
 continuous_cd = 2
+linear_damp = 3.0
 script = ExtResource("1_mehlb")
 
 [node name="Sprites" type="Node2D" parent="."]

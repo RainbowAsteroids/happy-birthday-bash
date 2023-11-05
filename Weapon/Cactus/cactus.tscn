@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://r6u5udtbm6jn"]
+
+[ext_resource type="Script" path="res://Weapon/Cactus/cactus.gd" id="1_43kub"]
+[ext_resource type="PackedScene" uid="uid://um068gckkmmf" path="res://Weapon/weapon_collision_handler.tscn" id="2_0p46a"]
+[ext_resource type="PackedScene" uid="uid://bkiapt30efdsl" path="res://Weapon/Cactus/cactus_spike.tscn" id="2_vkxii"]
+[ext_resource type="PackedScene" uid="uid://dmj0nad12uk3v" path="res://Weapon/moveable_handler.tscn" id="3_kt3ey"]
+[ext_resource type="Texture2D" uid="uid://dn1y8cv2ceg1d" path="res://Weapon/Cactus/cactus-body.png" id="4_j6bxr"]
+[ext_resource type="Texture2D" uid="uid://vulmv5ueaks" path="res://Weapon/Cactus/cactus-pupil-left.png" id="5_orvbn"]
+[ext_resource type="Script" path="res://Weapon/SugarCookie/googly-eye.gd" id="6_fwxou"]
+[ext_resource type="Texture2D" uid="uid://cc42jlbjpqji" path="res://Weapon/Cactus/cactus-pupil-right.png" id="7_u0olp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6jcsc"]
+radius = 40.0
+height = 134.0
+
+[node name="Cactus" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 11
+linear_damp = 5.0
+script = ExtResource("1_43kub")
+cactus_spike_scene = ExtResource("2_vkxii")
+cactus_spike_offset = 15
+
+[node name="WeaponCollisionHandler" parent="." instance=ExtResource("2_0p46a")]
+
+[node name="MoveableHandler" parent="." instance=ExtResource("3_kt3ey")]
+
+[node name="Sprites" type="Node2D" parent="."]
+scale = Vector2(0.6, 0.6)
+
+[node name="Cactus-body" type="Sprite2D" parent="Sprites"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_j6bxr")
+
+[node name="Cactus-pupil-left" type="Sprite2D" parent="Sprites"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("5_orvbn")
+script = ExtResource("6_fwxou")
+
+[node name="Cactus-pupil-right" type="Sprite2D" parent="Sprites"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("7_u0olp")
+script = ExtResource("6_fwxou")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_6jcsc")
+
+[connection signal="enemy_hit" from="WeaponCollisionHandler" to="." method="_on_weapon_collision_handler_enemy_hit"]

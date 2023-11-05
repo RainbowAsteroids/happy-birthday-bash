@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dkphvvx1s48hi"]
+[gd_scene load_steps=12 format=3 uid="uid://dkphvvx1s48hi"]
 
 [ext_resource type="PackedScene" uid="uid://bph5vow85w8do" path="res://ball.tscn" id="1_f4dmd"]
 [ext_resource type="Script" path="res://World/spinnyboi.gd" id="2_p7rve"]
@@ -6,8 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://kyp60bl755aw" path="res://Cake/cake.tscn" id="4_2ehdc"]
 [ext_resource type="PackedScene" uid="uid://b5ijahjdcyd0y" path="res://Enemy/enemy.tscn" id="5_c162b"]
 [ext_resource type="PackedScene" uid="uid://c7i5kuuhsy4tp" path="res://Enemy/enemy_spawner.tscn" id="7_hxux6"]
-[ext_resource type="PackedScene" uid="uid://bw8q50xti3s4n" path="res://Weapon/Pipe/pipe.tscn" id="8_qyu74"]
-[ext_resource type="PackedScene" uid="uid://ddwrunmww2qba" path="res://Weapon/Fan/fan.tscn" id="11_koefx"]
+[ext_resource type="PackedScene" uid="uid://r6u5udtbm6jn" path="res://Weapon/Cactus/cactus.tscn" id="7_wwsfe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xu6c7"]
 texture = ExtResource("3_ivn4p")
@@ -70,9 +69,6 @@ position = Vector2(558, 691)
 respawn_time = 5
 enemy_parent = NodePath("../../Enemies")
 
-[node name="Fan" parent="." instance=ExtResource("11_koefx")]
-position = Vector2(288, 352)
-
 [node name="oldstyle" type="Node2D" parent="."]
 process_mode = 4
 visible = false
@@ -107,5 +103,5 @@ metadata/_edit_lock_ = true
 shape = SubResource("RectangleShape2D_psh5m")
 metadata/_edit_lock_ = true
 
-[node name="Pipe" parent="." instance=ExtResource("8_qyu74")]
-position = Vector2(826, 272)
+[node name="Cactus" parent="." instance=ExtResource("7_wwsfe")]
+position = Vector2(317, 262)

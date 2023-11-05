@@ -31,8 +31,8 @@ func take_damage(amount: float):
 	if health <= 0:
 		queue_free()
 	
-	modulate = Color.RED
+	self_modulate = Color.RED
 	await get_tree().process_frame
 	await get_tree().process_frame
 	await get_tree().process_frame
-	modulate = Color.WHITE
+	self_modulate = Color.WHITE
