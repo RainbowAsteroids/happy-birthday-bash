@@ -39,4 +39,5 @@ texture = ExtResource("2_3adm8")
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(9, 0)
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

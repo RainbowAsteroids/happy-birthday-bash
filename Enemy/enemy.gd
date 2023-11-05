@@ -96,3 +96,8 @@ func take_damage(amount: float):
 func _on_child_entered_tree(node):
 	if node is CactusSpike:
 		spike_count += 1
+
+
+func _on_body_entered(body:Node):
+	if body is TileMap:
+		take_damage(linear_velocity.length() / 8.0)
