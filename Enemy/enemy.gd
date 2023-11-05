@@ -104,8 +104,8 @@ func _ready():
 	max_contacts_reported = 10000 # arbitraily large
 
 func _on_body_entered(body:Node):
-	print("collision with ", body)
+	#print("collision with ", body)
 	if body is TileMap:
-		print("wall damage")
+		#print("wall damage")
 		wall_damaged.emit()
 		take_damage(linear_velocity.length() / 8.0)

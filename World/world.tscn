@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dkphvvx1s48hi"]
+[gd_scene load_steps=37 format=3 uid="uid://dkphvvx1s48hi"]
 
 [ext_resource type="Script" path="res://World/world.gd" id="1_bv7nv"]
 [ext_resource type="PackedScene" uid="uid://bph5vow85w8do" path="res://ball.tscn" id="1_f4dmd"]
@@ -29,6 +29,7 @@
 [ext_resource type="Script" path="res://World/WallDamageLabel.gd" id="26_4fsws"]
 [ext_resource type="Script" path="res://World/Tutorial/ShopLabel.gd" id="26_4v6nw"]
 [ext_resource type="Script" path="res://World/Label2.gd" id="26_oucol"]
+[ext_resource type="Script" path="res://World/Tutorial/BreakWeaponLabel.gd" id="27_5cyf4"]
 [ext_resource type="Script" path="res://Menus/QuitButton.gd" id="27_a6fr4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xu6c7"]
@@ -434,6 +435,15 @@ offset_right = 415.0
 offset_bottom = 75.0
 text = "deal bonus damage by hitting enemies into wall"
 script = ExtResource("26_4fsws")
+
+[node name="BreakWeaponLabel" type="Label" parent="CanvasLayer2"]
+offset_left = 43.0
+offset_top = 569.0
+offset_right = 419.0
+offset_bottom = 595.0
+text = "your weapons have durability; 
+prepare for them to break!"
+script = ExtResource("27_5cyf4")
 
 [node name="ShopLabel" type="Label" parent="CanvasLayer2"]
 offset_left = 723.0
