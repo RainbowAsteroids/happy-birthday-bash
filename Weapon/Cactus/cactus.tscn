@@ -15,7 +15,7 @@ height = 134.0
 
 [node name="Cactus" type="RigidBody2D"]
 collision_layer = 4
-collision_mask = 11
+collision_mask = 43
 linear_damp = 5.0
 script = ExtResource("1_43kub")
 cactus_spike_scene = ExtResource("2_vkxii")

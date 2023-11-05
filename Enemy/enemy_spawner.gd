@@ -14,7 +14,7 @@ extends Node2D
 
 func _on_timer_timeout():
 	print("timeout")
-	respawn_time -= randf() * 0.05
+	respawn_time -= randf() * 0.15
 	var enemy = enemy_scene.instantiate()
 	enemy.global_position = global_position
 	

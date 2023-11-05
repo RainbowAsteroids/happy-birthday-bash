@@ -12,7 +12,7 @@
 
 [node name="SugarCookie" type="RigidBody2D"]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 35
 physics_material_override = SubResource("PhysicsMaterial_tikh2")
 continuous_cd = 2
 linear_damp = 3.0
