@@ -18,14 +18,19 @@ class_name Enemy extends RigidBody2D
 
 @export var damage_modulate := Color.RED
 
+@export var gold_scene: PackedScene
+
 @onready var cake := Cake.instance
 @onready var initial_mass = mass
 
+var dead = false
 
 var damage_multiplier := 1.0
 
 var slowed := false
 var damage_multiplied := false
+
+var spike_count = 1
 
 func _physics_process(_delta):
 	var goal := cake.global_position - global_position
@@ -36,7 +41,7 @@ func _physics_process(_delta):
 	if sign(angle) != sign(angular_velocity):
 		flick = 3.0
 
-	print(sign(angle) * sign(angular_velocity))
+	#print(sign(angle) * sign(angular_velocity))
 
 	var angle_accuracy = (2 - abs(abs(angle) - abs(rotation)) / PI) * flick
 
@@ -61,13 +66,28 @@ func _physics_process(_delta):
 	
 
 func take_damage(amount: float):
-	health -= amount * damage_multiplier
+	if not dead:
+		health -= amount * damage_multiplier
 
-	if health <= 0:
-		queue_free()
-	
-	sprite.modulate = damage_modulate
-	await get_tree().process_frame
-	await get_tree().process_frame
-	await get_tree().process_frame
-	sprite.modulate = Color.WHITE
+		if health <= 0:
+			dead = true
+
+			for i in range(spike_count):
+				var gold = gold_scene.instantiate()
+				gold.global_position = global_position
+				get_parent().add_child(gold)
+
+				queue_free()
+		
+		sprite.modulate = damage_modulate
+		await get_tree().process_frame
+		await get_tree().process_frame
+		await get_tree().process_frame
+		sprite.modulate = Color.WHITE
+
+
+func _on_child_entered_tree(node):
+	print("_on_child_entered_tree")
+	if node is CactusSpike:
+		print("spike")
+		spike_count += 1

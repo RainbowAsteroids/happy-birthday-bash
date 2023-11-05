@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://c32xp22iowqmo"]
+
+[ext_resource type="Script" path="res://Shop/gold.gd" id="1_o4adt"]
+[ext_resource type="Texture2D" uid="uid://224ko376u86m" path="res://Shop/gold.png" id="2_ylvuj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vakq7"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ysag8"]
+radius = 48.0937
+
+[node name="Gold" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 49
+input_pickable = true
+script = ExtResource("1_o4adt")
+move_force = 25.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vakq7")
+
+[node name="Sprite" type="Node2D" parent="."]
+scale = Vector2(0.2, 0.2)
+
+[node name="Gold" type="Sprite2D" parent="Sprite"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_ylvuj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ysag8")
+debug_color = Color(0.639216, 0.588235, 0, 0.419608)
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]

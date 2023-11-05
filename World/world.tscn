@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkphvvx1s48hi"]
+[gd_scene load_steps=12 format=3 uid="uid://dkphvvx1s48hi"]
 
 [ext_resource type="PackedScene" uid="uid://bph5vow85w8do" path="res://ball.tscn" id="1_f4dmd"]
 [ext_resource type="Script" path="res://World/spinnyboi.gd" id="2_p7rve"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://kyp60bl755aw" path="res://Cake/cake.tscn" id="4_2ehdc"]
 [ext_resource type="PackedScene" uid="uid://c7i5kuuhsy4tp" path="res://Enemy/enemy_spawner.tscn" id="7_hxux6"]
 [ext_resource type="PackedScene" uid="uid://r6u5udtbm6jn" path="res://Weapon/Cactus/cactus.tscn" id="7_wwsfe"]
+[ext_resource type="PackedScene" uid="uid://bwfqljprf240h" path="res://Weapon/SpikeyBall/spikey_ball.tscn" id="12_h34yp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xu6c7"]
 texture = ExtResource("3_ivn4p")
@@ -94,4 +95,7 @@ shape = SubResource("RectangleShape2D_psh5m")
 metadata/_edit_lock_ = true
 
 [node name="Cactus" parent="." instance=ExtResource("7_wwsfe")]
-position = Vector2(261, 319)
+position = Vector2(275, 218)
+
+[node name="SpikeyBall" parent="." instance=ExtResource("12_h34yp")]
+position = Vector2(-231, 483)
