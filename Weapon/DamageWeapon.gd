@@ -5,8 +5,10 @@ class_name DamageWeapon extends Weapon
 @onready var weaponCollisionHandler = $WeaponCollisionHandler as WeaponCollisionHandler
 
 func _on_enemy_hit(enemy: Enemy):
+	super(enemy)
 	enemy.take_damage(damage)
 	durability -= 1
 
-func _ready():
-	weaponCollisionHandler.enemy_hit.connect(_on_enemy_hit)
+#func _ready():
+	#super()
+	#weaponCollisionHandler.enemy_hit.connect(_on_enemy_hit)

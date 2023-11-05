@@ -98,4 +98,4 @@ metadata/_edit_lock_ = true
 position = Vector2(275, 218)
 
 [node name="SpikeyBall" parent="." instance=ExtResource("12_h34yp")]
-position = Vector2(-231, 483)
+position = Vector2(190, 469)

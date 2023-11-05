@@ -26,4 +26,5 @@ func _physics_process(delta: float):
 	scared_sprite.visible = being_attacked
 
 	if health <= 0:
-		print("ded")
+		pass
+		#print("ded")

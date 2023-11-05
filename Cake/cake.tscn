@@ -20,7 +20,6 @@ happy_sprite = NodePath("Sprites/Cake-happy")
 scared_sprite = NodePath("Sprites/Cake-scared")
 
 [node name="Sprites" type="Node2D" parent="."]
-scale = Vector2(1, 1)
 
 [node name="Cake-scared" type="Sprite2D" parent="Sprites"]
 scale = Vector2(0.05, 0.05)

@@ -5,10 +5,8 @@ extends Weapon
 @onready var weaponCollisionHandler = $WeaponCollisionHandler as WeaponCollisionHandler
 
 func _on_enemy_hit(enemy: Enemy):
+	super(enemy)
 	if enemy.damage_multiplier != damage_mul:
 		enemy.damage_multiplied = true
 		enemy.damage_multiplier = damage_mul
 		durability -= 1
-
-func _ready():
-	weaponCollisionHandler.enemy_hit.connect(_on_enemy_hit)

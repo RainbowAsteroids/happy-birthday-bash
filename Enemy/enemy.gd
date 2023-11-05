@@ -87,7 +87,5 @@ func take_damage(amount: float):
 
 
 func _on_child_entered_tree(node):
-	print("_on_child_entered_tree")
 	if node is CactusSpike:
-		print("spike")
 		spike_count += 1
