@@ -6,7 +6,7 @@ class_name World extends Node2D
 @export var balance_label: Label
 @export var lose_screen: PackedScene
 
-@export var balance := 5: 
+@export var balance := 1: 
 	set(value):
 		balance_label.text = str(value)
 

@@ -23,10 +23,14 @@ func _on_gui_input(event: InputEvent):
 
 func _ready():
 	reset()
-	texture_rect.gui_input.connect(_on_gui_input)
+	gui_input.connect(_on_gui_input)
 
 func reset():
-	price = initial_price + randi_range(-price_variation, price_variation)
+	if not stick:
+		price = initial_price + randi_range(-price_variation, price_variation)
 
 func _process(_delta):
 	price_label.text = str(price)
+
+	if stick:
+		price = HighscoreManager.score / 5 + 1
