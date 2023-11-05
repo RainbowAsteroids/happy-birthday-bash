@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://ppkvtrwk7ipd"]
+[gd_scene load_steps=9 format=3 uid="uid://ppkvtrwk7ipd"]
 
 [ext_resource type="Script" path="res://Weapon/DamageWeapon.gd" id="1_w5qqt"]
-[ext_resource type="Texture2D" uid="uid://bar8284qe8857" path="res://Weapon/Stick/stick.png" id="2_fmy8t"]
 [ext_resource type="PackedScene" uid="uid://dmj0nad12uk3v" path="res://Weapon/moveable_handler.tscn" id="3_rv7xh"]
+[ext_resource type="Texture2D" uid="uid://dm58j2dqyfmeg" path="res://Weapon/Stick/stick-body.png" id="4_bc0my"]
 [ext_resource type="PackedScene" uid="uid://um068gckkmmf" path="res://Weapon/weapon_collision_handler.tscn" id="4_s0wwi"]
+[ext_resource type="Texture2D" uid="uid://dr3xx8f8cc5ip" path="res://Weapon/Stick/stick-left-pupil.png" id="5_v7lrb"]
+[ext_resource type="Script" path="res://Weapon/SugarCookie/googly-eye.gd" id="6_6qnwt"]
+[ext_resource type="Texture2D" uid="uid://buqqp7x77o02i" path="res://Weapon/Stick/stick-right-pupil.png" id="6_b578m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbg61"]
-size = Vector2(106, 26)
+size = Vector2(80, 109)
 
 [node name="Stick" type="RigidBody2D"]
 collision_layer = 4
@@ -15,14 +18,29 @@ inertia = 1000.0
 continuous_cd = 2
 linear_damp = 2.419
 script = ExtResource("1_w5qqt")
-durability = 15
-
-[node name="Stick" type="Sprite2D" parent="."]
-texture = ExtResource("2_fmy8t")
+durability = 40
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, -0.5)
 shape = SubResource("RectangleShape2D_vbg61")
 
 [node name="MoveableHandler" parent="." instance=ExtResource("3_rv7xh")]
 
 [node name="WeaponCollisionHandler" parent="." instance=ExtResource("4_s0wwi")]
+
+[node name="Sprites" type="Node2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="Stick-body" type="Sprite2D" parent="Sprites"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_bc0my")
+
+[node name="Stick-left-pupil" type="Sprite2D" parent="Sprites"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("5_v7lrb")
+script = ExtResource("6_6qnwt")
+
+[node name="Stick-right-pupil" type="Sprite2D" parent="Sprites"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_b578m")
+script = ExtResource("6_6qnwt")

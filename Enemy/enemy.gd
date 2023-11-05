@@ -9,6 +9,8 @@ class_name Enemy extends RigidBody2D
 @onready var cake := Cake.instance
 @onready var initial_mass = mass
 
+@onready var sprite = $Icon
+
 var damage_multiplier := 1.0
 
 var slowed := false
@@ -31,8 +33,8 @@ func take_damage(amount: float):
 	if health <= 0:
 		queue_free()
 	
-	self_modulate = Color.RED
+	sprite.modulate = Color.RED
 	await get_tree().process_frame
 	await get_tree().process_frame
 	await get_tree().process_frame
-	self_modulate = Color.WHITE
+	sprite.modulate = Color.WHITE
