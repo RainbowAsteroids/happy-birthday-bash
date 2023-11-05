@@ -13,7 +13,7 @@ extends Node2D
 @onready var timer = $SpawnTimer
 
 func _on_timer_timeout():
-	print("timeout")
+	#print("timeout")
 	respawn_time -= randf() * 0.15
 	var enemy = enemy_scene.instantiate()
 	enemy.global_position = global_position
@@ -21,7 +21,7 @@ func _on_timer_timeout():
 	enemy_parent.add_child(enemy)
 
 func _ready():
-	print(respawn_time)
+	#print(respawn_time)
 	timer.autostart = true
 	timer.start(respawn_time)
 

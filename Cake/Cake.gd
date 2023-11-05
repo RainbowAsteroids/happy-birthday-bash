@@ -1,5 +1,7 @@
 class_name Cake extends StaticBody2D
 
+signal dead
+
 static var instance: Cake
 
 @export var health := 100.0
@@ -26,5 +28,4 @@ func _physics_process(delta: float):
 	scared_sprite.visible = being_attacked
 
 	if health <= 0:
-		pass
-		#print("ded")
+		dead.emit()

@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://detdqcqq3u8y0"]
+
+[ext_resource type="Script" path="res://Menus/ScoreLabel.gd" id="1_caei0"]
+[ext_resource type="Script" path="res://Menus/HighscoreLabel.gd" id="2_ux0sn"]
+[ext_resource type="Script" path="res://Menus/PlayButton.gd" id="3_l11ig"]
+[ext_resource type="PackedScene" uid="uid://dkphvvx1s48hi" path="res://World/world.tscn" id="4_boubc"]
+[ext_resource type="Script" path="res://Menus/QuitButton.gd" id="5_uxqw4"]
+
+[node name="LoseScreen" type="MarginContainer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "You lose :("
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Score: {0}"
+horizontal_alignment = 1
+script = ExtResource("1_caei0")
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "High score: {0}"
+horizontal_alignment = 1
+script = ExtResource("2_ux0sn")
+
+[node name="Control2" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = " PLAY AGAIN"
+script = ExtResource("3_l11ig")
+play_scene = ExtResource("4_boubc")
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = " quit :( "
+script = ExtResource("5_uxqw4")
+
+[connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="VBoxContainer/Button2" method="_on_pressed"]

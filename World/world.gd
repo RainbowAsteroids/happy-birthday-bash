@@ -1,7 +1,10 @@
 class_name World extends Node2D
 
+@export var pause_menu: CanvasItem
+
 @export var shop_button_parent: Node
 @export var balance_label: Label
+@export var lose_screen: PackedScene
 
 @export var balance := 5: 
 	set(value):
@@ -11,6 +14,11 @@ class_name World extends Node2D
 
 var shop_buttons: Array[ShopButton] = []
 var stick_button: ShopButton
+
+func _input(event: InputEvent):
+	if event.is_action_pressed("pause"):
+		pause_menu.visible = true
+		get_tree().paused = true
 
 func _on_selected(button: ShopButton):
 	var cost = button.price
@@ -54,6 +62,8 @@ func shuffle_shop():
 
 
 func _ready():
+	HighscoreManager.reset()
+
 	get_tree().node_added.connect(_on_node_added)
 
 	balance = balance
@@ -69,10 +79,15 @@ func _ready():
 	shuffle_shop()
 
 func _on_collected():
+	HighscoreManager.score += 1
 	balance += 1
 
 func _on_node_added(node:Node):
 	if node is Gold:
 		node.collected.connect(_on_collected)
 		pass
+
+func _on_cake_dead():
+	HighscoreManager.commit()
+	get_tree().change_scene_to_packed(lose_screen)
 
