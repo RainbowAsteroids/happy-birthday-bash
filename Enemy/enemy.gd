@@ -65,6 +65,12 @@ func _physics_process(_delta):
 	#move_and_slide()
 	
 
+func create_gold():
+	var gold = gold_scene.instantiate()
+	gold.global_position = global_position
+	get_parent().add_child(gold)
+
+
 func take_damage(amount: float):
 	if not dead:
 		health -= amount * damage_multiplier
@@ -73,11 +79,12 @@ func take_damage(amount: float):
 			dead = true
 
 			for i in range(spike_count):
-				var gold = gold_scene.instantiate()
-				gold.global_position = global_position
-				get_parent().add_child(gold)
+				create_gold()
 
-				queue_free()
+			while randf() < 0.4:
+				create_gold()
+
+			queue_free()
 		
 		sprite.modulate = damage_modulate
 		await get_tree().process_frame

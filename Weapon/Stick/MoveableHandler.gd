@@ -13,7 +13,8 @@ var torque_direction := 1
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if not event.pressed:
-			moving = false
+			pass
+			#moving = false
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton:
@@ -31,7 +32,7 @@ func _draw():
 			true
 		)
 
-func _process(delta):
+func _process(_delta):
 	queue_redraw()
 
 func _ready():

@@ -28,7 +28,7 @@ func _ready():
 	weapon_collision_handler.enemy_hit.connect(_on_enemy_hit)
 
 func _on_enemy_hit(_enemy: Enemy):
-	print("hai")
+	#print("hai")
 	if danger:
 		audio_player.pitch_scale = .5
 	audio_player.play()

@@ -1,12 +1,27 @@
-[gd_scene load_steps=12 format=3 uid="uid://dkphvvx1s48hi"]
+[gd_scene load_steps=27 format=3 uid="uid://dkphvvx1s48hi"]
 
+[ext_resource type="Script" path="res://World/world.gd" id="1_bv7nv"]
 [ext_resource type="PackedScene" uid="uid://bph5vow85w8do" path="res://ball.tscn" id="1_f4dmd"]
 [ext_resource type="Script" path="res://World/spinnyboi.gd" id="2_p7rve"]
 [ext_resource type="Texture2D" uid="uid://cc2j3r46e7v2x" path="res://icon.svg" id="3_ivn4p"]
 [ext_resource type="PackedScene" uid="uid://kyp60bl755aw" path="res://Cake/cake.tscn" id="4_2ehdc"]
 [ext_resource type="PackedScene" uid="uid://c7i5kuuhsy4tp" path="res://Enemy/enemy_spawner.tscn" id="7_hxux6"]
 [ext_resource type="PackedScene" uid="uid://r6u5udtbm6jn" path="res://Weapon/Cactus/cactus.tscn" id="7_wwsfe"]
+[ext_resource type="Script" path="res://Shop/ShopButton.gd" id="8_jpxoy"]
+[ext_resource type="Texture2D" uid="uid://224ko376u86m" path="res://Shop/gold.png" id="8_suieq"]
+[ext_resource type="Texture2D" uid="uid://dv7pbkxlpboiy" path="res://Shop/cactus-shop.png" id="9_bih4a"]
+[ext_resource type="Texture2D" uid="uid://fvs0m1lp4qst" path="res://Shop/fan-shop.png" id="11_dhmwq"]
 [ext_resource type="PackedScene" uid="uid://bwfqljprf240h" path="res://Weapon/SpikeyBall/spikey_ball.tscn" id="12_h34yp"]
+[ext_resource type="Texture2D" uid="uid://bm2akmteeed30" path="res://Shop/spikey-ball-shop.png" id="12_yfrc5"]
+[ext_resource type="PackedScene" uid="uid://ddwrunmww2qba" path="res://Weapon/Fan/fan.tscn" id="13_lb8h3"]
+[ext_resource type="PackedScene" uid="uid://q3onn125gdt7" path="res://Weapon/Glue/glue.tscn" id="14_5kwyf"]
+[ext_resource type="Texture2D" uid="uid://baklvr28cfyw4" path="res://Shop/glue-shop.png" id="15_3b0y0"]
+[ext_resource type="PackedScene" uid="uid://bw8q50xti3s4n" path="res://Weapon/Pipe/pipe.tscn" id="16_njatj"]
+[ext_resource type="Texture2D" uid="uid://craao2osifum8" path="res://Weapon/Pipe/pipe.png" id="17_anqur"]
+[ext_resource type="PackedScene" uid="uid://ppkvtrwk7ipd" path="res://Weapon/Stick/Stick.tscn" id="18_lupe2"]
+[ext_resource type="Texture2D" uid="uid://dyi7mg01ym2xy" path="res://Shop/stick-shop.png" id="19_0unke"]
+[ext_resource type="PackedScene" uid="uid://dix336iqjmom1" path="res://Weapon/SugarCookie/sugar_cookie.tscn" id="20_8b6td"]
+[ext_resource type="Texture2D" uid="uid://6oavfwyw4r2x" path="res://Shop/sugar-cookie-shop.png" id="22_dlr8k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xu6c7"]
 texture = ExtResource("3_ivn4p")
@@ -26,7 +41,11 @@ size = Vector2(128, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_psh5m"]
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" node_paths=PackedStringArray("shop_button_parent", "balance_label")]
+position = Vector2(1, 0)
+script = ExtResource("1_bv7nv")
+shop_button_parent = NodePath("CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer")
+balance_label = NodePath("CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Label")
 
 [node name="Cake" parent="." instance=ExtResource("4_2ehdc")]
 position = Vector2(559, 356)
@@ -42,22 +61,18 @@ layer_0/tile_data = PackedInt32Array(0, 131072, 3, 65536, 131072, 3, 131072, 131
 
 [node name="EnemySpawner" parent="Spawners" node_paths=PackedStringArray("enemy_parent") instance=ExtResource("7_hxux6")]
 position = Vector2(-34, 343)
-respawn_time = 5
 enemy_parent = NodePath("../../Enemies")
 
 [node name="EnemySpawner2" parent="Spawners" node_paths=PackedStringArray("enemy_parent") instance=ExtResource("7_hxux6")]
 position = Vector2(578, -37)
-respawn_time = 5
 enemy_parent = NodePath("../../Enemies")
 
 [node name="EnemySpawner3" parent="Spawners" node_paths=PackedStringArray("enemy_parent") instance=ExtResource("7_hxux6")]
 position = Vector2(1214, 353)
-respawn_time = 5
 enemy_parent = NodePath("../../Enemies")
 
 [node name="EnemySpawner4" parent="Spawners" node_paths=PackedStringArray("enemy_parent") instance=ExtResource("7_hxux6")]
 position = Vector2(558, 691)
-respawn_time = 5
 enemy_parent = NodePath("../../Enemies")
 
 [node name="oldstyle" type="Node2D" parent="."]
@@ -94,8 +109,278 @@ metadata/_edit_lock_ = true
 shape = SubResource("RectangleShape2D_psh5m")
 metadata/_edit_lock_ = true
 
-[node name="Cactus" parent="." instance=ExtResource("7_wwsfe")]
-position = Vector2(275, 218)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="SpikeyBall" parent="." instance=ExtResource("12_h34yp")]
-position = Vector2(190, 469)
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 956.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Shop"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CactusShopButton" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 15
+script = ExtResource("8_jpxoy")
+weapon_scene = ExtResource("7_wwsfe")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/CactusShopButton"]
+custom_minimum_size = Vector2(50, 65)
+layout_mode = 2
+texture = ExtResource("9_bih4a")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/CactusShopButton"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/CactusShopButton/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_suieq")
+expand_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/CactusShopButton/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/CactusShopButton/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.290196, 1)
+theme_override_font_sizes/font_size = 25
+text = "69
+"
+
+[node name="FanShopButton" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 15
+script = ExtResource("8_jpxoy")
+weapon_scene = ExtResource("13_lb8h3")
+initial_price = 30
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/FanShopButton"]
+custom_minimum_size = Vector2(50, 75)
+layout_mode = 2
+texture = ExtResource("11_dhmwq")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/FanShopButton"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/FanShopButton/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_suieq")
+expand_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/FanShopButton/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/FanShopButton/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.290196, 1)
+theme_override_font_sizes/font_size = 25
+text = "69
+"
+
+[node name="SpikeyBallShopButton" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 15
+script = ExtResource("8_jpxoy")
+weapon_scene = ExtResource("12_h34yp")
+initial_price = 30
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SpikeyBallShopButton"]
+custom_minimum_size = Vector2(50, 95)
+layout_mode = 2
+texture = ExtResource("12_yfrc5")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SpikeyBallShopButton"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SpikeyBallShopButton/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_suieq")
+expand_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SpikeyBallShopButton/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SpikeyBallShopButton/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.290196, 1)
+theme_override_font_sizes/font_size = 25
+text = "69"
+
+[node name="GlueShopButton" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 15
+script = ExtResource("8_jpxoy")
+weapon_scene = ExtResource("14_5kwyf")
+initial_price = 15
+price_variation = 5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/GlueShopButton"]
+custom_minimum_size = Vector2(50, 95)
+layout_mode = 2
+texture = ExtResource("15_3b0y0")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/GlueShopButton"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/GlueShopButton/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_suieq")
+expand_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/GlueShopButton/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/GlueShopButton/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.290196, 1)
+theme_override_font_sizes/font_size = 25
+text = "69"
+
+[node name="PipeShopButton" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 15
+script = ExtResource("8_jpxoy")
+weapon_scene = ExtResource("16_njatj")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/PipeShopButton"]
+custom_minimum_size = Vector2(50, 120)
+layout_mode = 2
+texture = ExtResource("17_anqur")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/PipeShopButton"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/PipeShopButton/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_suieq")
+expand_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/PipeShopButton/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/PipeShopButton/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.290196, 1)
+theme_override_font_sizes/font_size = 25
+text = "69"
+
+[node name="StickShopButton" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+script = ExtResource("8_jpxoy")
+weapon_scene = ExtResource("18_lupe2")
+stick = true
+initial_price = 5
+price_variation = 0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/StickShopButton"]
+custom_minimum_size = Vector2(50, 90)
+layout_mode = 2
+texture = ExtResource("19_0unke")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/StickShopButton"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/StickShopButton/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_suieq")
+expand_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/StickShopButton/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/StickShopButton/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.290196, 1)
+theme_override_font_sizes/font_size = 25
+text = "69"
+
+[node name="SugarCookieShopButton" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+script = ExtResource("8_jpxoy")
+weapon_scene = ExtResource("20_8b6td")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SugarCookieShopButton"]
+custom_minimum_size = Vector2(50, 90)
+layout_mode = 2
+texture = ExtResource("22_dlr8k")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SugarCookieShopButton"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SugarCookieShopButton/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_suieq")
+expand_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SugarCookieShopButton/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SugarCookieShopButton/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.290196, 1)
+theme_override_font_sizes/font_size = 25
+text = "69"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_suieq")
+expand_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.290196, 1)
+theme_override_font_sizes/font_size = 25
+text = "6969"
