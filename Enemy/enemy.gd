@@ -7,10 +7,8 @@ signal wall_damaged
 
 @export var max_speed := 50.0
 @export var acceleration := 15.0
-@export var max_angular_velocity := 500.0
 @export var torque := 5000.0
 
-@export var correction_torque := 5000.0
 @export var flick := 2.0
 @export var yank := 500.0
 
@@ -43,29 +41,14 @@ func _physics_process(_delta):
 	if sign(angle) != sign(angular_velocity):
 		flick = 3.0
 
-	#print(sign(angle) * sign(angular_velocity))
+	# abs(angle) / PI will be 1 if the angle is maximally inaccurate and 0 if maximally accurate
+	var angle_accuracy = (1 + abs(angle) / PI) * flick
 
-	var angle_accuracy = (2 - abs(abs(angle) - abs(rotation)) / PI) * flick
-
-	var desired_direction = Vector2.RIGHT.rotated(angle)
-	var f_hat = Vector2.RIGHT.rotated(rotation)
-
-	var mul = (-(f_hat.dot(desired_direction) - 1) + 1) * flick
-	
 	apply_torque(sign(angle) * torque * angle_accuracy)
-	#apply_central_force(Vector2.RIGHT.rotated(rotation) * acceleration * initial_mass)
 
+	# always move in the direction we are rotated
+	var f_hat = Vector2.RIGHT.rotated(rotation)
 	apply_central_force(f_hat * acceleration * initial_mass)
-	#apply_central_force(f_hat * acceleration * initial_mass)
-
-	if abs(angular_velocity) > max_angular_velocity:
-		var delta_av = max_angular_velocity - abs(angular_velocity)
-		apply_torque(correction_torque * -sign(angular_velocity))
-	
-	#velocity += goal * acceleration * delta
-	#velocity = velocity.limit_length(max_speed)
-	#move_and_slide()
-	
 
 func create_gold():
 	var gold = gold_scene.instantiate()

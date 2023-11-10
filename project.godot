@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 HighscoreManager="*res://HighscoreManager.gd"
+MousePos="*res://mouse_pos.gd"
 
 [display]
 
@@ -43,6 +44,7 @@ pause={
 
 [physics]
 
+2d/run_on_separate_thread=true
 2d/default_gravity_vector=Vector2(0, 0)
 
 [rendering]
