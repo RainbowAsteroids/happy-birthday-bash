@@ -1,10 +1,11 @@
-[gd_scene load_steps=37 format=3 uid="uid://dkphvvx1s48hi"]
+[gd_scene load_steps=38 format=3 uid="uid://dkphvvx1s48hi"]
 
 [ext_resource type="Script" path="res://World/world.gd" id="1_bv7nv"]
 [ext_resource type="PackedScene" uid="uid://bph5vow85w8do" path="res://ball.tscn" id="1_f4dmd"]
 [ext_resource type="Script" path="res://World/spinnyboi.gd" id="2_p7rve"]
 [ext_resource type="PackedScene" uid="uid://detdqcqq3u8y0" path="res://Menus/lose_screen.tscn" id="2_q124s"]
 [ext_resource type="Texture2D" uid="uid://cc2j3r46e7v2x" path="res://icon.svg" id="3_ivn4p"]
+[ext_resource type="PackedScene" uid="uid://c32xp22iowqmo" path="res://Shop/gold.tscn" id="3_ox0ea"]
 [ext_resource type="Texture2D" uid="uid://bx41dhg31iilm" path="res://transparent.png" id="4_1gfse"]
 [ext_resource type="PackedScene" uid="uid://kyp60bl755aw" path="res://Cake/cake.tscn" id="4_2ehdc"]
 [ext_resource type="PackedScene" uid="uid://c7i5kuuhsy4tp" path="res://Enemy/enemy_spawner.tscn" id="7_hxux6"]
@@ -77,6 +78,7 @@ pause_menu = NodePath("PauseMenu/PanelContainer")
 shop_button_parent = NodePath("CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer")
 balance_label = NodePath("CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Label")
 lose_screen = ExtResource("2_q124s")
+gold_scene = ExtResource("3_ox0ea")
 
 [node name="Cake" parent="." instance=ExtResource("4_2ehdc")]
 position = Vector2(559, 356)

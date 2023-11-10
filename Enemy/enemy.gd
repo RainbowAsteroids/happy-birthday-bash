@@ -1,6 +1,7 @@
 class_name Enemy extends RigidBody2D
 
 signal wall_damaged
+signal create_gold(amount: int, pos: Vector2)
 
 @export var damage := 3.0
 @export var health := 100.0
@@ -18,8 +19,6 @@ signal wall_damaged
 
 @export var damage_modulate := Color.RED
 
-@export var gold_scene: PackedScene
-
 @onready var cake := Cake.instance
 @onready var initial_mass = mass
 
@@ -30,6 +29,7 @@ var damage_multiplier := 1.0
 var slowed := false
 var damage_multiplied := false
 
+## Number of spikes on the enemy, at least 1 to guarentee one gold created on death
 var spike_count = 1
 
 func _physics_process(_delta):
@@ -50,10 +50,10 @@ func _physics_process(_delta):
 	var f_hat = Vector2.RIGHT.rotated(rotation)
 	apply_central_force(f_hat * acceleration * initial_mass)
 
-func create_gold():
-	var gold = gold_scene.instantiate()
-	gold.global_position = global_position
-	get_parent().add_child(gold)
+#func create_gold():
+	#var gold = gold_scene.instantiate()
+	#gold.global_position = global_position
+	#get_parent().add_child(gold)
 
 
 func take_damage(amount: float):
@@ -62,20 +62,25 @@ func take_damage(amount: float):
 
 		if health <= 0:
 			dead = true
+			
+			var gold_count := 0
 
 			for i in range(spike_count):
-				create_gold()
+				gold_count += 1
 
 			while randf() < 0.4:
-				create_gold()
+				gold_count += 1
+
+			create_gold.emit(gold_count, global_position)
 
 			queue_free()
 		
-		sprite.modulate = damage_modulate
-		await get_tree().process_frame
-		await get_tree().process_frame
-		await get_tree().process_frame
-		sprite.modulate = Color.WHITE
+		else:
+			sprite.modulate = damage_modulate
+			await get_tree().process_frame
+			await get_tree().process_frame
+			await get_tree().process_frame
+			sprite.modulate = Color.WHITE
 
 
 func _on_child_entered_tree(node):

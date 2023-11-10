@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5ijahjdcyd0y"]
+[gd_scene load_steps=4 format=3 uid="uid://b5ijahjdcyd0y"]
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_01oix"]
 [ext_resource type="Texture2D" uid="uid://dsjk8e8rhpilw" path="res://Enemy/ant.png" id="2_3adm8"]
-[ext_resource type="PackedScene" uid="uid://c32xp22iowqmo" path="res://Shop/gold.tscn" id="2_q0pb2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3b7vd"]
 radius = 19.0
@@ -23,7 +22,6 @@ yank = 1.0
 sprite = NodePath("Sprites")
 head_pos = NodePath("Marker2D")
 damage_modulate = Color(0.380392, 0, 0, 1)
-gold_scene = ExtResource("2_q0pb2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.57079
