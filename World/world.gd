@@ -29,7 +29,7 @@ func _on_selected(button: ShopButton):
 		balance -= cost
 
 		var weapon := button.weapon_scene.instantiate() as Weapon
-		weapon.global_position = get_global_mouse_position()
+		weapon.global_position = MousePos.mouse_pos
 
 		add_child(weapon)
 		weapon.set_moving(true)

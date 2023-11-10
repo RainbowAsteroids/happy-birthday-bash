@@ -41,7 +41,7 @@ func _screen_exited():
 	await get_tree().create_timer(1.).timeout
 
 	if not on_screen_indicator.is_on_screen():
-		global_position = get_global_mouse_position()
+		global_position = MousePos.mouse_pos
 		linear_velocity = Vector2()
 
 func _ready():

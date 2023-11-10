@@ -41,7 +41,7 @@ func _ready():
 	
 func _physics_process(_delta):
 	if moving:
-		var to_mouse := get_global_mouse_position() - parent.global_position
+		var to_mouse := MousePos.mouse_pos - parent.global_position
 		var x := to_mouse.length()
 		var to_mouse_hat := to_mouse.normalized()
 
