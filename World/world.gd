@@ -42,25 +42,17 @@ func shuffle_shop():
 		btn.visible = false
 	stick_button.visible = false
 
-	var spots_left = 2
-	var stick_placed = false
-	
 	var btns := shop_buttons.duplicate()
 
-	for i in range(3):
-		if not stick_placed:
-			if randi() % (spots_left + 1) == 0:
-				stick_placed = true
-				stick_button.visible = true
-				stick_button.get_parent().move_child(stick_button, i)
-				continue
-			else:
-				spots_left -= 1
-
+	stick_button.reset()
+	stick_button.visible = true
+	stick_button.get_parent().move_child(stick_button, 0)
+	for i in range(2):
 		btns.shuffle()
 		var btn := btns.pop_back() as ShopButton
+		btn.reset()
 		btn.visible = true
-		btn.get_parent().move_child(btn, i)
+		btn.get_parent().move_child(btn, i + 1)
 
 
 func _ready():
@@ -84,12 +76,13 @@ func _on_collected():
 	HighscoreManager.score += 1
 	balance += 1
 
+@onready var gold_parent := %Gold
 func _on_create_gold(amount: int, pos: Vector2):
 	for i in range(amount):
 		var gold = gold_scene.instantiate()
 		gold.global_position = pos
 		gold.global_rotation = randf() * PI * 2
-		add_child.call_deferred(gold)
+		gold_parent.add_child.call_deferred(gold)
 
 func _on_node_added(node:Node):
 	if node is Gold:

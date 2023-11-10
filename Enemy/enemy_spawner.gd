@@ -7,14 +7,9 @@ var respawn_chance := 1.0
 @export var respawn_time := 1.:
 	set(value):
 		respawn_time = max(minimum_respawn_time, value)
-		respawn_chance += respawn_time - value # 0 if value >= minimum, positive if not
-
-		if timer != null:
-			timer.start(respawn_time)
+		#respawn_chance += respawn_time - value # 0 if value >= minimum, positive if not
 
 @export var enemy_parent: Node
-
-@onready var timer = $SpawnTimer
 
 func _on_timer_timeout():
 	respawn_time -= randf() * 0.15
@@ -29,13 +24,14 @@ func _on_timer_timeout():
 	
 		enemy_parent.add_child(enemy)
 
-func _ready():
-	#print(respawn_time)
-	timer.autostart = true
-	timer.one_shot = true
-	timer.start(respawn_time)
+var clock := 0.0
+func _process(delta):
+	clock += delta
 
+	if clock > respawn_time:
+		_on_timer_timeout()
+		clock = 0
+
+func _ready():
 	if enemy_parent == null:
 		enemy_parent = self
-	
-	timer.timeout.connect(_on_timer_timeout)

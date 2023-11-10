@@ -6,6 +6,5 @@
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_jk85d")
 enemy_scene = ExtResource("2_gxoel")
+minimum_respawn_time = 0.17
 respawn_time = 5.0
-
-[node name="SpawnTimer" type="Timer" parent="."]
