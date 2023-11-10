@@ -22,7 +22,6 @@ HighscoreManager="*res://HighscoreManager.gd"
 
 [display]
 
-window/size/resizable=false
 window/stretch/mode="canvas_items"
 
 [input]

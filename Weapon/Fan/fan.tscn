@@ -1,48 +1,37 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddwrunmww2qba"]
+[gd_scene load_steps=6 format=3 uid="uid://ddwrunmww2qba"]
 
-[ext_resource type="Script" path="res://Weapon/Fan/fan.gd" id="1_yepoy"]
+[ext_resource type="PackedScene" uid="uid://xo4nsxadhsgl" path="res://Weapon/weapon.tscn" id="1_0qx6f"]
+[ext_resource type="Script" path="res://Weapon/Fan/fan.gd" id="2_8xrbe"]
 [ext_resource type="Texture2D" uid="uid://bybaxlj66uwpl" path="res://Weapon/Fan/fan.png" id="2_ro6pv"]
-[ext_resource type="PackedScene" uid="uid://dmj0nad12uk3v" path="res://Weapon/moveable_handler.tscn" id="3_5jmkq"]
-[ext_resource type="PackedScene" uid="uid://um068gckkmmf" path="res://Weapon/weapon_collision_handler.tscn" id="4_g5ptf"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2eydp"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_puet1"]
 radius = 39.0
 height = 130.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2lxtv"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_81tbx"]
 radius = 118.258
 
-[node name="Fan" type="RigidBody2D"]
-collision_layer = 4
-collision_mask = 43
-mass = 2.21
-linear_damp = 4.106
-script = ExtResource("1_yepoy")
-wind_force = 100.0
-velocity_divisor = 7.0
-durability = 10
+[node name="Fan" instance=ExtResource("1_0qx6f")]
+script = ExtResource("2_8xrbe")
+wind_force = 30.0
+velocity_divisor = 100.0
 
-[node name="Sprites" type="Node2D" parent="."]
+[node name="Sprites" type="Node2D" parent="." index="4"]
 scale = Vector2(0.638, 0.638)
 
-[node name="Fan" type="Sprite2D" parent="Sprites"]
+[node name="Fan" type="Sprite2D" parent="Sprites" index="0"]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_ro6pv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="5"]
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_2eydp")
+shape = SubResource("CapsuleShape2D_puet1")
 
-[node name="MoveableHandler" parent="." instance=ExtResource("3_5jmkq")]
-
-[node name="WeaponCollisionHandler" parent="." instance=ExtResource("4_g5ptf")]
-
-[node name="WindHitbox" type="Area2D" parent="."]
+[node name="WindHitbox" type="Area2D" parent="." index="6"]
+unique_name_in_owner = true
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WindHitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindHitbox" index="0"]
 position = Vector2(0, -93)
-shape = SubResource("CircleShape2D_2lxtv")
+shape = SubResource("CircleShape2D_81tbx")
 debug_color = Color(0.160784, 0.643137, 0, 0.419608)
-
-[connection signal="enemy_hit" from="WeaponCollisionHandler" to="." method="_on_weapon_collision_handler_enemy_hit"]

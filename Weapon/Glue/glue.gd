@@ -10,5 +10,3 @@ func _on_weapon_collision_handler_enemy_hit(enemy: Enemy):
 		enemy.linear_damp *= damp_mul
 		enemy.linear_velocity = Vector2()
 
-		durability -= 1
-
