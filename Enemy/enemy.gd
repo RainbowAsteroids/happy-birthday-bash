@@ -97,3 +97,14 @@ func _on_body_entered(body:Node):
 		#print("wall damage")
 		wall_damaged.emit()
 		take_damage(linear_velocity.length() / 8.0)
+
+
+@onready var front_on_screen_notifier := %FrontOnScreenNotifier
+func _on_on_screen_check_timer_timeout():
+	if not front_on_screen_notifier.is_on_screen():
+		queue_free()
+
+
+
+func _on_rear_on_screen_notifier_screen_entered():
+	collision_mask = collision_mask | (1 << 0) # world is layer 1, therefore shl (1 - 1)

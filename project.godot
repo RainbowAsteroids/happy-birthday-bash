@@ -25,6 +25,10 @@ MousePos="*res://mouse_pos.gd"
 
 window/stretch/mode="canvas_items"
 
+[global]
+
+max_enemy_count=500
+
 [input]
 
 pause={

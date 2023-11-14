@@ -1,5 +1,7 @@
 class_name World extends Node2D
 
+static var instance: World
+
 @export var pause_menu: CanvasItem
 
 @export var shop_button_parent: Node
@@ -13,6 +15,12 @@ class_name World extends Node2D
 		balance_label.text = str(value)
 
 		balance = value
+
+@onready var enemy_count_label := %EnemyCount
+var enemy_count := 0:
+	set(value):
+		enemy_count_label.text = "Enemy Count: " + str(value)
+		enemy_count = value
 
 var shop_buttons: Array[ShopButton] = []
 var stick_button: ShopButton
@@ -55,10 +63,14 @@ func shuffle_shop():
 		btn.get_parent().move_child(btn, i + 1)
 
 
+func _init():
+	instance = self
+
 func _ready():
 	HighscoreManager.reset()
 
 	get_tree().node_added.connect(_on_node_added)
+	get_tree().node_removed.connect(_on_node_removed)
 
 	balance = balance
 
@@ -89,7 +101,12 @@ func _on_node_added(node:Node):
 		node.collected.connect(_on_collected)
 
 	if node is Enemy:
+		enemy_count += 1
 		node.create_gold.connect(_on_create_gold)
+
+func _on_node_removed(node:Node):
+	if node is Enemy:
+		enemy_count -= 1
 		
 
 func _on_cake_dead():

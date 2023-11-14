@@ -8,9 +8,8 @@ radius = 19.0
 height = 70.0
 
 [node name="Enemy" type="RigidBody2D" node_paths=PackedStringArray("sprite", "head_pos")]
-position = Vector2(0, 1)
 collision_layer = 8
-collision_mask = 15
+collision_mask = 14
 mass = 2.5
 continuous_cd = 2
 linear_damp = 1.0
@@ -37,5 +36,20 @@ texture = ExtResource("2_3adm8")
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(9, 0)
 
+[node name="FrontOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(36, 0)
+
+[node name="RearOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-43, 0)
+rect = Rect2(-0.5, -0.5, 1, 1)
+
+[node name="OnScreenCheckTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="screen_entered" from="RearOnScreenNotifier" to="." method="_on_rear_on_screen_notifier_screen_entered"]
+[connection signal="timeout" from="OnScreenCheckTimer" to="." method="_on_on_screen_check_timer_timeout"]
